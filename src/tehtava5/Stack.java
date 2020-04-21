@@ -33,16 +33,20 @@ public class Stack {
 			ListItem newItem = new ListItem(); // luodaan uusi lista-alkio
 			newItem.setData(aData);
 			listOfListItems[size] = newItem;
+			newItem.setLink(top);
 			size++;
+			top = newItem;
 		}
 	}
 
 	// poistetaan alkio pinon huipulta, jos pinossa ei alkioita palautetaan null
 	public ListItem pop() {
 		if(size > 0) {
+			top = top.getLink();
 			size--;
 			ListItem listItemRemoved = listOfListItems[size];
 			listOfListItems[size] = null;
+			
 			return listItemRemoved;
 		}
 		return null;

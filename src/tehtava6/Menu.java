@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tehtava5;
+package tehtava6;
 
 /**
  *
@@ -29,8 +29,7 @@ public class Menu {
 			System.out.println("\t\t\t2. Alkion poistaminen.");
 			System.out.println("\t\t\t3. Pinon sisältö.");
 			System.out.println("\t\t\t4. Alkioiden lukumäärä.");
-			System.out.println("\t\t\t5. Pinon sisältö iteraattorilla selattuna.");
-			System.out.println("\t\t\t6. lopetus ");
+			System.out.println("\t\t\t5. lopetus ");
 			System.out.print("\n\n"); // tehdään tyhjiä rivejä
 			select = Lue.merkki();
 			switch (select) {
@@ -40,11 +39,11 @@ public class Menu {
 				s.push(data);
 				break;
 			case '2':
-				ListItem item = s.pop();
-				if (item == null)
+				String item = s.pop();
+				if (item.equals("Tyhj�"))
 					System.out.println("Pino on tyhjä");
 				else
-					System.out.println("Poistettu alkio: " + item.getData());
+					System.out.println("Poistettu alkio: " + item);
 				break;
 			case '3':
 				s.printItems();
@@ -53,15 +52,9 @@ public class Menu {
 				System.out.println("Lukumäärä = " + s.getSize());
 				break;
 			case '5':
-				StackIterator itr = s.iterator();
-				while (itr.hasNext()) {
-						System.out.println(itr.next().getData());
-				}
-				break;
-			case '6':
 				break;
 			}
-		} while (select != '6');
+		} while (select != '5');
 	}
 //printMenu loppuu ----------------------------------------------------------------
 }

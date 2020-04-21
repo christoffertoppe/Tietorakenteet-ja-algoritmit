@@ -18,25 +18,29 @@ interface Iterator {
 public class StackIterator implements Iterator {
 	private ListItem current;
 	private Stack container; // container on tietorakenne, jota iteroidaan
+	int size;
 
 	StackIterator(Stack c) { // konstruktori on "package visible"
 		container = c;
 		current = container.top;
+		size = container.getSize();
+		
 	}
 
 	// palautetaan tieto siitä, löytyyko rakenteesta seuraava alkio
 	// hmm... palautetaan tieto siitä, osoittaako nykypositio (current) alkiota vai
 	// ei.
 	public boolean hasNext() {
-		if (current == null)
-			return false;
-		else
+		if (current != null) {	
 			return true;
+			
+		}
+			return false;
 	}
 
 	// palautetaan nykyinen (lista-alkio) ja siirretään nykypositiota pykälä
 	// eteenpäin
-	public ListItem next() {
+	public ListItem next() {	
 		ListItem oldCurrent = current;
 		current = current.getLink();
 		return oldCurrent;
