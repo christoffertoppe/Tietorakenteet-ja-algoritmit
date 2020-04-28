@@ -197,8 +197,9 @@ public class BinaryTree {
 					Node nodeNew = new Node(value);
 					nodeNew.setLeft(left);
 					nodeNew.setRight(right);
-					root = nodeNew;				
-					return null;
+					root = nodeNew;	
+					
+					return new BinaryTree(value , left, right);
 				}
 			}
 			if (root.getData().compareTo(data) >= 0) {				   
