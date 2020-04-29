@@ -5,14 +5,9 @@ public class BinarySearch {
 	private static int[] lista = null;
 
 	public Boolean find(int data, int startindex, int divide) {
-		System.out.println();
 		System.out.println("etsitään: " + data);
 		try {
-		System.out.println("vertaulu luku: " + lista[(lista.length / divide) + startindex]);
-		} catch(Exception e) {
-			return false;				
-		}
-		System.out.println("startindex: " + startindex);
+
 		if (lista.length > 0) {
 			// if (lista.length % 2 == 0) {
 			int luku = lista[(lista.length / divide) + startindex];
@@ -37,7 +32,9 @@ public class BinarySearch {
 				return value;
 			}
 		}
-		// }
+		} catch(Exception e) {
+			return false;				
+		}
 		return false;
 	}
 
@@ -47,11 +44,11 @@ public class BinarySearch {
 		for (int i = 0; i < value; i++) {
 			lista[i] = i;
 			System.out.print(lista[i] + ",");
-			if (i % 10 == 0) {
+			if (i % 10 == 0 && i != 0) {
 				System.out.println();
 			}
 		}
-		System.out.println("added " + value + " numbers to the list");
+		System.out.println(" added " + value + " numbers to the list");
 		} catch (NegativeArraySizeException e) {
 		}
 	}
