@@ -130,10 +130,15 @@ public class BinaryTree {
 	}
 	
 	public BinaryTree getNextBinaryTreeValue(BinaryTree startPoint) {	
-		
-		if (startPoint.getNode().left() != null) { // pääseeekö vasemmalle?
+		try {
+		if (startPoint.getNode().left().getNode().left() != null) { // pääseeekö vasemmalle?
+			
 			startPoint = getNextBinaryTreeValue(startPoint.getNode().left());
-		} 
+		}
+			} catch(Exception e) {
+				return startPoint;
+			}
+		
 
 		return startPoint;
 	}
@@ -184,16 +189,13 @@ public class BinaryTree {
 					BinaryTree tree = getNextBinaryTreeValue(root.right());
 					String value = tree.getNode().getData();
 					BinaryTree left = null;
-					BinaryTree right = null;
-					try {
-					left = root.left();
-					} catch (Exception e ) {
-					}
+					BinaryTree right = null;					
 					try {
 					right = root.right();
 					} catch (Exception e ) {
 					}					
-					remove(tree.getNode().getData());
+					remove(tree.getNode().left().getNode().getData());
+					tree.getNode().setLeft(null);
 					Node nodeNew = new Node(value);
 					nodeNew.setLeft(left);
 					nodeNew.setRight(right);

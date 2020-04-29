@@ -42,7 +42,7 @@ public class Menu {
                         case '2':                           
                                 System.out.println("Anna etsittävä avain (kokonaisluku)");
                                 data = Lue.rivi();                              
-                                if (tree.find(Integer.parseInt(data), tree.getIntList()) != false){
+                                if (tree.find(Integer.parseInt(data), 0, 2) != false){
                                     System.out.println("Avain löytyi.");
                                 }
                                 else {
