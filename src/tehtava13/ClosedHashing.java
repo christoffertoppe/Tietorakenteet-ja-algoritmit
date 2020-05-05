@@ -2,7 +2,7 @@ package tehtava13;
 
 public class ClosedHashing {
 	private int[] lista;
-	private int listaKoko = 199;
+	private int listaKoko = 7;
 
 	public ClosedHashing() {
 		lista = new int[this.listaKoko];
@@ -19,7 +19,7 @@ public class ClosedHashing {
 				etsitaan = false;
 			} else {
 				i++;
-				if (i == 198) {
+				if (i == listaKoko) {
 					System.out.println("Lista täynnä");
 					etsitaan = false;
 				}
@@ -36,7 +36,7 @@ public class ClosedHashing {
 				return true;
 			} else {
 				i++;
-				if (i == 199) {
+				if (i == listaKoko) {
 					etsitaan = false;
 				}
 			}
