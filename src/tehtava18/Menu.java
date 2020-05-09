@@ -56,22 +56,24 @@ public class Menu {
                     		System.out.println("BinaryTree: " + (System.currentTimeMillis() - timeSec));
                             break;
                         case '2':                           
-                                System.out.println("Anna etsittävä avain (merkkijono)");
+                                System.out.println("Anna etsittävä avain (kokonaisluku)");
                                 data = Lue.rivi();
                                 if (tree.find(Integer.parseInt(data)) != null){
                                     System.out.println("Avain löytyi.");
                                 }
                                 else {
                                     System.out.println("Avainta ei löytynyt.");
-                                }
-                                                           
+                                }                                                          
                             break;
                         case '3':
                             tree.preOrder();
                             char h = Lue.merkki(); // pysäytetään kontrolli
                             break;
                         case '4':
+                        	if(treeSetti != null) {
                             treeSetti.printList();
+                        	} else 
+                        		System.out.println("tyhj��");
                             h = Lue.merkki(); // pysäytetään kontrolli
                             break;  
                         case '0':
