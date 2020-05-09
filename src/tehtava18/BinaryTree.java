@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package tehtava17;
+package tehtava18;
 
 import com.sun.org.apache.xml.internal.utils.StringComparable;
 
@@ -19,7 +19,6 @@ import java.util.List;
 public class BinaryTree {
 
 	private Node root;
-
 	public BinaryTree() {
 		root = null;
 
@@ -39,38 +38,40 @@ public class BinaryTree {
 		}
 	
 	
-	public BinaryTree(String rootValue, BinaryTree left, BinaryTree right) {
+	public BinaryTree(int rootValue, BinaryTree left, BinaryTree right) {
 		root = new Node(rootValue, left, right);
 	}
 
-	public void insert(String aData) {
-
+	public void insert(int aData) {
+		
+		
 		// lis‰‰ juurisolmu
 		if (root == null) {
 			Node node = new Node(aData);
-			System.out.println("New root: " + aData);
+		//	System.out.println("New root: " + aData);
 			root = node;
 		} else {
 			BinaryTree treeNew = new BinaryTree(aData, null, null);	
 			// lis‰‰ juuri solmun vasemmalle puolella
-			if (root.getData().compareTo(aData) >= 0) {				
+			if (root.getData() >=  aData) {	
 				if (root.left() == null) {									
 					root.setLeft(treeNew);
-					System.out.println("First left BinaryTree node: " + aData);
+				//	System.out.println("First left BinaryTree node: " + aData);
 				} else {					
 					root.left().insert(aData);	
-					System.out.println("New left BinaryTree node: " + aData);
+				//	System.out.println("New left BinaryTree node: " + aData);
 				}
 			}
 
 			// lis‰‰ juurisolmun oikealle puolelle
-			else if (root.getData().compareTo(aData) < 0) {
+			
+			else if (root.getData() < aData) {
 				if (root.right() == null) {
 					root.setRight(treeNew);
-					System.out.println("First right BinaryTree node: " + aData);
+				//	System.out.println("First right BinaryTree node: " + aData);
 				} else {
 						root.right().insert(aData);
-						System.out.println("New right BinaryTree node: " + aData);
+				//		System.out.println("New right BinaryTree node: " + aData);
 					}
 				}
 			}		
@@ -78,21 +79,20 @@ public class BinaryTree {
 	
 	
 	
-	public BinaryTree find(String aData) {
-
+	public BinaryTree find(int aData) {
 		if (root != null) {
-			if(root.getData().equalsIgnoreCase(aData)) {
-				System.out.println("lˆytyi");
+			if(root.getData() == aData) {
+			//1	System.out.println("lˆytyi");
 				return new BinaryTree(root.getData(), root.left(), root.right());
 			}
-			
-			if (root.getData().compareTo(aData) >= 0) {				   
+			if (root.getData() >= aData) {	
 			    if (root.left() != null) { // p√§√§seeek√∂ vasemmalle?
 			    	BinaryTree uusi = root.left().find(aData);
-			    	return uusi;	
+			    	return uusi;
+			    	
 			    }
 			}
-			if (root.getData().compareTo(aData) < 0) {
+			if (root.getData() < aData) {
 				if (root.right() != null) { // p√§√§seek√∂ oikealle?
 			    	BinaryTree uusi =	root.right().find(aData);
 			    	return uusi;			
@@ -128,4 +128,5 @@ public class BinaryTree {
 	public Node getNode() {
 		return root;
 	}
+
 }
